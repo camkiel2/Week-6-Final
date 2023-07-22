@@ -75,8 +75,26 @@ playGame(); {
     console.log('War!');
     let player1 = this.players[0];
     let player2 = this.players[1];
-    let winnerScore = 0;
-
+    let roundWinner = '';
+    let turn = 0
+    while (player1.hands.length !== 0 && player2.hands.length !== 0) {
+        let player1Card = player1.hands.pop();
+        let player2Card = player2.hands.pop();
+        if (player1Card.value > player2Card.value) {
+            roundWinner = player1.name;
+            player1.points += 1;
+            console.log('Turn: ', (turn += 1), '\nPlayer 1 card: ', player1Card.name, 'of', player1Card.suit, '\nPlayer 2 Card: ', player2Card.name, 'of', player2Card.suit)
+        }
+        else if (player2Card.value > player1Card.value) {
+            roundWinner = player2.name
+            player2.points += 1;
+            console.log('Turn: ', (turn +=1), '\nPlayer 1 card: ', player1Card.name, 'of', player1Card.suit, '\nPlayer 2 Card: ', player2Card.name, 'of', player2Card.suit)
+        }
+        else {
+            console.log('Turn: ', (turn +=1), '\nPlayer 1 card: ', player1Card.name, 'of', player1Card.suit, '\nPlayer 2 Card: ', player2Card.name, 'of', player2Card.suit)
+        }
+    }
+endGame() {
     if (player1.points > player2.points) {
         gameWinner = player1.name;
         winnerScore = player1.points;
@@ -89,8 +107,7 @@ playGame(); {
         alert('Final \nTie\n Final Scores:\n' + player1.name + ': ' + player1.points + "\n" + player2.name + ': ' + player2.score + "\n");
     }
     }
+} 
     
-    endGame() {
-        
-    }
+
     
