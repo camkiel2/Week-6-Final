@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { Deck } = require('./Week6Project.js'); // Replace with the path to your deck file
+const { Deck } = require('./Week6Project.js'); 
 
 describe('Deck', () => {
   describe('#shuffleDeck()', () => {
